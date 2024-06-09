@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+## It에 관한 생각?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 개인적인 고민
+- Q : it 작성 언어
+  - A : 팀원이 주로 사용하는 언어를 기준으로 세움
 
-## Available Scripts
+#### 내가 생각하는 bad case & best case
+bad
+```
+  it("구매 버튼 클릭")
+```
 
-In the project directory, you can run:
+best
+```
+  it("구매 버튼 클릭 시 Modal을 띄운다.")
+```
+A를 만족하면 B가 도출되는 형식으로 작성하기
 
-### `npm start`
+## 간단한 문법 가이드
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### **일반 Matcher**
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **`toBe(value)` : 정확히 일치하는지 확인합니다. 객체의 경우 메모리 상 동일한 객체인지 확인합니다.**
+- **`toEqual(value)`  : 객체나 배열의 모든 필드를 재귀적으로 비교하여 값이 동일한지 확인합니다.**
+- **`toBeNull()` : 값이 `null`인지 확인합니다.**
+- **`toBeUndefined()` : 값이 `undefined`인지 확인합니다.**
+- **`toBeDefined()` : 값이 `undefined`가 아닌지 확인합니다.**
+- **`toBeTruthy()`  : 값이 참으로 평가되는지 확인합니다.**
+- **`toBeFalsy()`  : 값이 거짓으로 평가되는지 확인합니다.**
+- **`toBeGreaterThan(number)` : 숫자가 주어진 값보다 큰지 확인합니다.**
+- **`toBeGreaterThanOrEqual(number)` : 숫자가 주어진 값보다 크거나 같은지 확인합니다.**
+- **`toBeLessThan(number)` : 숫자가 주어진 값보다 작은지 확인합니다.**
+- **`toBeLessThanOrEqual(number)` : 숫자가 주어진 값보다 작거나 같은지 확인합니다.**
+- **`toBeCloseTo(number, numDigits)` : 부동 소수점 숫자가 주어진 숫자와 근사한지 확인합니다.**
+- **`toMatch(regexpOrString)` : 문자열이 정규 표현식이나 주어진 문자열과 일치하는지 확인합니다.**
+- **`toContain(item)` : 배열이나 iterable에 특정 항목이 포함되어 있는지 확인합니다.**
+- **`toThrow(error)` : 함수가 에러를 던지는지 확인합니다**
 
-### `npm test`
+### **`not` 속성**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+**`not` 속성은 matcher의 결과를 반대로 수행할 수 있게 해줍니다. 즉, 특정 조건이 성립하지 않음을 확인할 때 사용합니다.**
